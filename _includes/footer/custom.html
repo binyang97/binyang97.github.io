@@ -38,35 +38,50 @@
 
   var navigating = false;
   var accumDelta = 0;
-  var THRESHOLD = 120;
+  var THRESHOLD = 350;
   var pageReady = false;
 
-  setTimeout(function () { pageReady = true; }, 1500);
+  setTimeout(function () { pageReady = true; }, 1000);
+
+  var bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;bottom:0;left:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
+  document.body.appendChild(bar);
+
+  function setProgress(frac) {
+    bar.style.opacity = frac > 0 ? '1' : '0';
+    bar.style.width = Math.min(frac * 100, 100) + '%';
+  }
 
   function doNavigate() {
     navigating = true;
+    setProgress(0);
     var main = document.getElementById('main');
     if (main) {
       document.body.classList.add('page-leaving');
       var done = false;
       function go() { if (!done) { done = true; window.location.href = nextPage.url; } }
       main.addEventListener('animationend', go, { once: true });
-      setTimeout(go, 750); // fallback if animationend doesn't fire
+      setTimeout(go, 750);
     } else {
       window.location.href = nextPage.url;
     }
   }
 
+  var scrollEl = document.scrollingElement || document.documentElement;
+
   window.addEventListener('wheel', function (e) {
     if (!pageReady || navigating) return;
-    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
-    if (e.deltaY > 0) {
+    var atBottom = scrollEl.scrollTop + window.innerHeight >= scrollEl.scrollHeight - 80;
+    var delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * 500 : e.deltaY;
+    if (delta > 0) {
       if (atBottom) {
-        accumDelta += Math.min(Math.abs(e.deltaY), 40);
+        accumDelta += delta;
+        setProgress(accumDelta / THRESHOLD);
         if (accumDelta >= THRESHOLD) doNavigate();
       }
-    } else {
+    } else if (delta < 0) {
       accumDelta = 0;
+      setProgress(0);
     }
   }, { passive: true });
 
@@ -75,10 +90,9 @@
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
   window.addEventListener('touchmove', function (e) {
-    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
-    if (atBottom && e.touches[0].clientY < touchStartY - 30 && pageReady && !navigating) {
-      doNavigate();
-    }
+    if (!pageReady || navigating) return;
+    var atBottom = scrollEl.scrollTop + window.innerHeight >= scrollEl.scrollHeight - 80;
+    if (atBottom && e.touches[0].clientY < touchStartY - 60) doNavigate();
   }, { passive: true });
 })();
 </script>
