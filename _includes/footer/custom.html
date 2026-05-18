@@ -39,27 +39,44 @@
 
   var sentinelVisible = false;
   var navigating = false;
+  var scrollCount = 0;
+  var gestureCooldown = false;
+  var pageReady = false;
+
+  // ignore scroll events carried over from the previous page
+  setTimeout(function () { pageReady = true; }, 1000);
 
   var sentinel = document.getElementById('snav-sentinel');
   if (sentinel) {
     new IntersectionObserver(function (entries) {
       sentinelVisible = entries[0].isIntersecting;
+      if (!sentinelVisible) { scrollCount = 0; gestureCooldown = false; }
     }, { threshold: 0 }).observe(sentinel);
   }
 
-  window.addEventListener('wheel', function (e) {
-    if (e.deltaY > 0 && sentinelVisible && !navigating) {
-      navigating = true;
-      var main = document.getElementById('main');
-      if (main) {
-        document.body.classList.add('page-leaving');
-        main.addEventListener('animationend', function () {
-          window.location.href = nextPage.url;
-        }, { once: true });
-      } else {
+  function doNavigate() {
+    navigating = true;
+    var main = document.getElementById('main');
+    if (main) {
+      document.body.classList.add('page-leaving');
+      main.addEventListener('animationend', function () {
         window.location.href = nextPage.url;
-      }
+      }, { once: true });
+    } else {
+      window.location.href = nextPage.url;
     }
+  }
+
+  function onScrollDown() {
+    if (!pageReady || !sentinelVisible || navigating || gestureCooldown) return;
+    gestureCooldown = true;
+    setTimeout(function () { gestureCooldown = false; }, 800);
+    scrollCount++;
+    if (scrollCount >= 2) doNavigate();
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (e.deltaY > 0) onScrollDown();
   }, { passive: true });
 
   var touchStartY = 0;
@@ -67,18 +84,7 @@
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
   window.addEventListener('touchmove', function (e) {
-    if (e.touches[0].clientY < touchStartY && sentinelVisible && !navigating) {
-      navigating = true;
-      var main = document.getElementById('main');
-      if (main) {
-        document.body.classList.add('page-leaving');
-        main.addEventListener('animationend', function () {
-          window.location.href = nextPage.url;
-        }, { once: true });
-      } else {
-        window.location.href = nextPage.url;
-      }
-    }
+    if (e.touches[0].clientY < touchStartY) onScrollDown();
   }, { passive: true });
 })();
 </script>
