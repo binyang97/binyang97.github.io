@@ -17,28 +17,32 @@
   #scroll-nav-hint {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    background: rgba(30,30,30,0.85);
+    background: rgba(30,30,30,0.9);
     color: #fff;
     text-align: center;
-    padding: 10px 16px;
+    padding: 12px 16px;
     font-size: 14px;
     transform: translateY(100%);
     transition: transform 0.3s ease;
     z-index: 9999;
-    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
   }
   #scroll-nav-hint.visible { transform: translateY(0); }
-  #scroll-nav-hint .progress-bar {
-    height: 3px;
-    background: #fff;
-    width: 0;
-    margin-top: 6px;
-    border-radius: 2px;
+  #scroll-nav-hint button {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
   }
-  #scroll-nav-hint.visible .progress-bar {
-    animation: snav-fill 1.2s linear forwards;
-  }
-  @keyframes snav-fill { from { width: 0; } to { width: 100%; } }
+  #scroll-nav-hint button:hover { background: rgba(255,255,255,0.2); }
+  #scroll-nav-hint button.primary { background: #fff; color: #222; }
+  #scroll-nav-hint button.primary:hover { background: #ddd; }
 </style>
 <script>
 (function () {
@@ -66,41 +70,37 @@
 
   var hint = document.createElement('div');
   hint.id = 'scroll-nav-hint';
-  hint.innerHTML = 'Next: <strong>' + nextPage.title + '</strong>&nbsp;&darr;<div class="progress-bar"></div>';
+  hint.innerHTML =
+    '<span>Jump to <strong>' + nextPage.title + '</strong>?</span>' +
+    '<button class="primary" id="snav-yes">Yes</button>' +
+    '<button id="snav-no">No</button>';
   document.body.appendChild(hint);
 
-  var HOLD_MS = 1200;
-  var holdTimer = null;
-  var navigating = false;
-  var sentinelVisible = false;
-
-  function startNav() {
-    if (navigating) return;
-    hint.classList.add('visible');
-    if (!holdTimer) {
-      holdTimer = setTimeout(function () {
-        navigating = true;
-        window.location.href = nextPage.url;
-      }, HOLD_MS);
-    }
-  }
-
-  function cancelNav() {
+  document.getElementById('snav-yes').addEventListener('click', function () {
+    window.location.href = nextPage.url;
+  });
+  document.getElementById('snav-no').addEventListener('click', function () {
     hint.classList.remove('visible');
-    if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
-  }
+    dismissed = true;
+  });
+
+  var sentinelVisible = false;
+  var dismissed = false;
 
   var sentinel = document.getElementById('snav-sentinel');
   if (sentinel) {
     new IntersectionObserver(function (entries) {
       sentinelVisible = entries[0].isIntersecting;
-      if (!sentinelVisible) cancelNav();
+      if (!sentinelVisible) { hint.classList.remove('visible'); dismissed = false; }
     }, { threshold: 0 }).observe(sentinel);
   }
 
-  // trigger only on active downward scroll gesture
+  function tryShow() {
+    if (sentinelVisible && !dismissed) hint.classList.add('visible');
+  }
+
   window.addEventListener('wheel', function (e) {
-    if (e.deltaY > 0 && sentinelVisible) startNav();
+    if (e.deltaY > 0) tryShow();
   }, { passive: true });
 
   var touchStartY = 0;
@@ -108,7 +108,7 @@
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
   window.addEventListener('touchmove', function (e) {
-    if (e.touches[0].clientY < touchStartY && sentinelVisible) startNav();
+    if (e.touches[0].clientY < touchStartY) tryShow();
   }, { passive: true });
 })();
 </script>
