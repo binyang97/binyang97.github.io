@@ -38,7 +38,7 @@
 
   var navigating = false;
   var accumDelta = 0;
-  var THRESHOLD = 300; // total overscroll needed (capped at 40 per event → ~8 ticks)
+  var THRESHOLD = 200;
   var pageReady = false;
 
   setTimeout(function () { pageReady = true; }, 1500);
@@ -48,9 +48,10 @@
     var main = document.getElementById('main');
     if (main) {
       document.body.classList.add('page-leaving');
-      main.addEventListener('animationend', function () {
-        window.location.href = nextPage.url;
-      }, { once: true });
+      var done = false;
+      function go() { if (!done) { done = true; window.location.href = nextPage.url; } }
+      main.addEventListener('animationend', go, { once: true });
+      setTimeout(go, 750); // fallback if animationend doesn't fire
     } else {
       window.location.href = nextPage.url;
     }
@@ -58,12 +59,12 @@
 
   window.addEventListener('wheel', function (e) {
     if (!pageReady || navigating) return;
-    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10;
     if (atBottom && e.deltaY > 0) {
-      accumDelta += Math.min(Math.abs(e.deltaY), 40); // cap per-event so fast swipes don't skip
+      accumDelta += Math.min(Math.abs(e.deltaY), 40);
       if (accumDelta >= THRESHOLD) doNavigate();
     } else {
-      accumDelta = 0; // reset if scrolling up or not at bottom
+      accumDelta = 0;
     }
   }, { passive: true });
 
