@@ -12,6 +12,7 @@
 </script>
 
 <!-- Scroll-to-next-tab navigation -->
+<div id="snav-sentinel" style="height:1px;visibility:hidden;"></div>
 <style>
   #scroll-nav-hint {
     position: fixed;
@@ -30,27 +31,31 @@
   #scroll-nav-hint .progress-bar {
     height: 3px;
     background: #fff;
-    width: 0%;
-    transition: width 0.1s linear;
+    width: 0;
     margin-top: 6px;
     border-radius: 2px;
   }
+  #scroll-nav-hint.visible .progress-bar {
+    animation: snav-fill 1.2s linear forwards;
+  }
+  @keyframes snav-fill { from { width: 0; } to { width: 100%; } }
 </style>
 <script>
 (function () {
-  {% include base_path %}
+  var baseurl = '{{ site.baseurl }}';
   var navLinks = [
-    { url: base_path + '/', title: 'Home' },
+    { url: baseurl + '/', title: 'Home' },
     {% for link in site.data.navigation.main %}
-    { url: base_path + '{{ link.url }}', title: '{{ link.title }}' },
+    { url: baseurl + '{{ link.url }}', title: '{{ link.title }}' },
     {% endfor %}
   ];
 
   var currentPath = window.location.pathname.replace(/\/?$/, '/');
+  var homeUrl = (baseurl + '/').replace(/\/\//, '/');
   var currentIndex = 0;
   for (var i = 0; i < navLinks.length; i++) {
     var linkPath = navLinks[i].url.replace(/\/?$/, '/');
-    if (currentPath === linkPath || (linkPath !== base_path + '/' && currentPath.startsWith(linkPath))) {
+    if (currentPath === linkPath || (linkPath !== homeUrl && currentPath.startsWith(linkPath))) {
       currentIndex = i;
       break;
     }
@@ -61,51 +66,50 @@
 
   var hint = document.createElement('div');
   hint.id = 'scroll-nav-hint';
-  hint.innerHTML = 'Next: <strong>' + nextPage.title + '</strong> &nbsp;↓<div class="progress-bar" id="snav-bar"></div>';
+  hint.innerHTML = 'Next: <strong>' + nextPage.title + '</strong>&nbsp;&darr;<div class="progress-bar"></div>';
   document.body.appendChild(hint);
-  var bar = document.getElementById('snav-bar');
 
-  var TRIGGER_THRESHOLD = 80;
   var HOLD_MS = 1200;
   var holdTimer = null;
   var navigating = false;
 
-  window.addEventListener('scroll', function () {
+  function onEnter() {
     if (navigating) return;
-    var distFromBottom = document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
-
-    if (distFromBottom <= TRIGGER_THRESHOLD) {
-      hint.classList.add('visible');
-      var progress = Math.max(0, 1 - distFromBottom / TRIGGER_THRESHOLD);
-      bar.style.width = (progress * 100) + '%';
-
-      if (!holdTimer) {
-        holdTimer = setTimeout(function () {
-          navigating = true;
-          window.location.href = nextPage.url;
-        }, HOLD_MS);
-      }
-    } else {
-      hint.classList.remove('visible');
-      bar.style.width = '0%';
-      if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+    hint.classList.add('visible');
+    if (!holdTimer) {
+      holdTimer = setTimeout(function () {
+        navigating = true;
+        window.location.href = nextPage.url;
+      }, HOLD_MS);
     }
-  });
+  }
+
+  function onLeave() {
+    hint.classList.remove('visible');
+    if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+  }
+
+  var sentinel = document.getElementById('snav-sentinel');
+  if (sentinel) {
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) onEnter(); else onLeave();
+    }, { threshold: 0 }).observe(sentinel);
+  }
 })();
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var selectors = [
       '.archive__item',
-      '.page__content > p',
-      '.page__content > h2',
-      '.page__content > h3',
-      '.page__content > h4',
-      '.page__content > ul',
-      '.page__content > ol',
-      '.page__content > table',
-      '.page__content > blockquote',
-      '.page__content > figure',
+      '.page__content p',
+      '.page__content h2',
+      '.page__content h3',
+      '.page__content h4',
+      '.page__content ul',
+      '.page__content ol',
+      '.page__content table',
+      '.page__content blockquote',
+      '.page__content figure',
     ];
     var targets = document.querySelectorAll(selectors.join(', '));
     targets.forEach(function (el) { el.classList.add('scroll-reveal'); });
