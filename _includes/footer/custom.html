@@ -13,37 +13,6 @@
 
 <!-- Scroll-to-next-tab navigation -->
 <div id="snav-sentinel" style="height:1px;visibility:hidden;"></div>
-<style>
-  #scroll-nav-hint {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(30,30,30,0.9);
-    color: #fff;
-    text-align: center;
-    padding: 12px 16px;
-    font-size: 14px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-  #scroll-nav-hint.visible { transform: translateY(0); }
-  #scroll-nav-hint button {
-    border: 1px solid #fff;
-    background: transparent;
-    color: #fff;
-    padding: 4px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-  }
-  #scroll-nav-hint button:hover { background: rgba(255,255,255,0.2); }
-  #scroll-nav-hint button.primary { background: #fff; color: #222; }
-  #scroll-nav-hint button.primary:hover { background: #ddd; }
-</style>
 <script>
 (function () {
   var baseurl = '{{ site.baseurl }}';
@@ -68,39 +37,29 @@
   if (currentIndex >= navLinks.length - 1) return;
   var nextPage = navLinks[currentIndex + 1];
 
-  var hint = document.createElement('div');
-  hint.id = 'scroll-nav-hint';
-  hint.innerHTML =
-    '<span>Jump to <strong>' + nextPage.title + '</strong>?</span>' +
-    '<button class="primary" id="snav-yes">Yes</button>' +
-    '<button id="snav-no">No</button>';
-  document.body.appendChild(hint);
-
-  document.getElementById('snav-yes').addEventListener('click', function () {
-    window.location.href = nextPage.url;
-  });
-  document.getElementById('snav-no').addEventListener('click', function () {
-    hint.classList.remove('visible');
-    dismissed = true;
-  });
-
   var sentinelVisible = false;
-  var dismissed = false;
+  var navigating = false;
 
   var sentinel = document.getElementById('snav-sentinel');
   if (sentinel) {
     new IntersectionObserver(function (entries) {
       sentinelVisible = entries[0].isIntersecting;
-      if (!sentinelVisible) { hint.classList.remove('visible'); dismissed = false; }
     }, { threshold: 0 }).observe(sentinel);
   }
 
-  function tryShow() {
-    if (sentinelVisible && !dismissed) hint.classList.add('visible');
-  }
-
   window.addEventListener('wheel', function (e) {
-    if (e.deltaY > 0) tryShow();
+    if (e.deltaY > 0 && sentinelVisible && !navigating) {
+      navigating = true;
+      var main = document.getElementById('main');
+      if (main) {
+        document.body.classList.add('page-leaving');
+        main.addEventListener('animationend', function () {
+          window.location.href = nextPage.url;
+        }, { once: true });
+      } else {
+        window.location.href = nextPage.url;
+      }
+    }
   }, { passive: true });
 
   var touchStartY = 0;
@@ -108,7 +67,18 @@
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
   window.addEventListener('touchmove', function (e) {
-    if (e.touches[0].clientY < touchStartY) tryShow();
+    if (e.touches[0].clientY < touchStartY && sentinelVisible && !navigating) {
+      navigating = true;
+      var main = document.getElementById('main');
+      if (main) {
+        document.body.classList.add('page-leaving');
+        main.addEventListener('animationend', function () {
+          window.location.href = nextPage.url;
+        }, { once: true });
+      } else {
+        window.location.href = nextPage.url;
+      }
+    }
   }, { passive: true });
 })();
 </script>
