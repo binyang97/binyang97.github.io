@@ -12,7 +12,6 @@
 </script>
 
 <!-- Scroll-to-next-tab navigation -->
-<div id="snav-sentinel" style="height:1px;visibility:hidden;"></div>
 <script>
 (function () {
   var baseurl = '{{ site.baseurl }}';
@@ -37,22 +36,12 @@
   if (currentIndex >= navLinks.length - 1) return;
   var nextPage = navLinks[currentIndex + 1];
 
-  var sentinelVisible = false;
   var navigating = false;
-  var scrollCount = 0;
-  var gestureCooldown = false;
+  var accumDelta = 0;
+  var THRESHOLD = 300; // total overscroll needed (capped at 40 per event → ~8 ticks)
   var pageReady = false;
 
-  // ignore scroll events carried over from the previous page
-  setTimeout(function () { pageReady = true; }, 1000);
-
-  var sentinel = document.getElementById('snav-sentinel');
-  if (sentinel) {
-    new IntersectionObserver(function (entries) {
-      sentinelVisible = entries[0].isIntersecting;
-      if (!sentinelVisible) { scrollCount = 0; gestureCooldown = false; }
-    }, { threshold: 0 }).observe(sentinel);
-  }
+  setTimeout(function () { pageReady = true; }, 1500);
 
   function doNavigate() {
     navigating = true;
@@ -67,16 +56,15 @@
     }
   }
 
-  function onScrollDown() {
-    if (!pageReady || !sentinelVisible || navigating || gestureCooldown) return;
-    gestureCooldown = true;
-    setTimeout(function () { gestureCooldown = false; }, 800);
-    scrollCount++;
-    if (scrollCount >= 2) doNavigate();
-  }
-
   window.addEventListener('wheel', function (e) {
-    if (e.deltaY > 0) onScrollDown();
+    if (!pageReady || navigating) return;
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+    if (atBottom && e.deltaY > 0) {
+      accumDelta += Math.min(Math.abs(e.deltaY), 40); // cap per-event so fast swipes don't skip
+      if (accumDelta >= THRESHOLD) doNavigate();
+    } else {
+      accumDelta = 0; // reset if scrolling up or not at bottom
+    }
   }, { passive: true });
 
   var touchStartY = 0;
@@ -84,7 +72,10 @@
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
   window.addEventListener('touchmove', function (e) {
-    if (e.touches[0].clientY < touchStartY) onScrollDown();
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+    if (atBottom && e.touches[0].clientY < touchStartY - 30 && pageReady && !navigating) {
+      doNavigate();
+    }
   }, { passive: true });
 })();
 </script>
