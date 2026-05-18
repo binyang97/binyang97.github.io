@@ -38,7 +38,7 @@
 
   var navigating = false;
   var accumDelta = 0;
-  var THRESHOLD = 200;
+  var THRESHOLD = 120;
   var pageReady = false;
 
   setTimeout(function () { pageReady = true; }, 1500);
@@ -59,10 +59,12 @@
 
   window.addEventListener('wheel', function (e) {
     if (!pageReady || navigating) return;
-    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10;
-    if (atBottom && e.deltaY > 0) {
-      accumDelta += Math.min(Math.abs(e.deltaY), 40);
-      if (accumDelta >= THRESHOLD) doNavigate();
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
+    if (e.deltaY > 0) {
+      if (atBottom) {
+        accumDelta += Math.min(Math.abs(e.deltaY), 40);
+        if (accumDelta >= THRESHOLD) doNavigate();
+      }
     } else {
       accumDelta = 0;
     }
