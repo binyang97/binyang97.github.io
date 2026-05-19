@@ -40,6 +40,45 @@
   a { text-decoration: none !important; color: #4a90d9; }
   a:hover { text-decoration: none !important; color: #2c6fad; }
 
+  /* talk cards */
+  .talk-card {
+    display: flex;
+    gap: 18px;
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s ease;
+  }
+  .talk-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.11); }
+  .talk-thumb-link { flex-shrink: 0; }
+  .talk-thumb {
+    position: relative;
+    width: 200px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .talk-thumb img { width: 100%; display: block; }
+  .talk-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s ease;
+  }
+  .talk-thumb-link:hover .talk-play-btn { background: #4a90d9; }
+  .talk-info { display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+  .talk-title { font-size: 1.0em; font-weight: 600; margin: 0; }
+  .talk-venue { font-size: 0.88em; color: #555; margin: 0; }
+  .talk-meta { font-size: 0.82em; color: #888; margin: 0 0 8px 0; }
+
   /* publication cards */
   .pub-card {
     background: #fff;
