@@ -49,6 +49,7 @@
             <p class="pub-venue"><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
             <div class="pub-links">
               {% if post.paperurl %}<a href="{{ post.paperurl }}">arXiv</a>{% endif %}
+              {% if post.codeurl %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
               {% if post.slidesurl %}<a href="{{ post.slidesurl }}">Slides</a>{% endif %}
               {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}">BibTeX</a>{% endif %}
             </div>
