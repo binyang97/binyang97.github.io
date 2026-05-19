@@ -18,9 +18,9 @@ redirect_from:
 📰 News
 ======
 
-  - 🎉 **[April 30, 2026]** First-author Paper accepted at **ICML 2026** — *Collaborative Learning for Semi-Supervised LiDAR Semantic Segmentation*
+  - 🎉 **[April 30, 2026]** First-author Paper <span class="word-accent">accepted</span> at **ICML 2026** — *Collaborative Learning for Semi-Supervised LiDAR Semantic Segmentation*
   - 🎤 **[March, 2026]** Presenting *FLARES* during the poster session on March 9 at WACV 2026 in Tucson, Arizona, USA.
-  - 🎉 **[Feb 21, 2026]** First-author Paper accepted at **CVPR 2026** — *Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds*
-  - 🎉 **[Nov 7, 2025]** Co-authored Paper accepted at **AAAI 2026** — *DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation*
-  - 🎉 **[Sep 5, 2025]** First-author Paper accepted at **WACV 2026** in the FIRST Round *(6.8% of submissions)* — *FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation*
+  - 🎉 **[Feb 21, 2026]** First-author Paper <span class="word-accent">accepted</span> at **CVPR 2026** — *Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds*
+  - 🎉 **[Nov 7, 2025]** Co-authored Paper <span class="word-accent">accepted</span> at **AAAI 2026** — *DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation*
+  - 🎉 **[Sep 5, 2025]** First-author Paper <span class="word-accent">accepted</span> at **WACV 2026** in the FIRST Round *(6.5% of submissions)* — *FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation*
 
