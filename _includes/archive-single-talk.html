@@ -8,6 +8,26 @@
 
 <div class="list__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if post.demovids %}
+    <div class="talk-card talk-card--multi">
+      <div class="talk-info">
+        <p class="talk-title">{{ title }}</p>
+        <p class="talk-venue"><i>{{ post.venue }}</i></p>
+        <p class="talk-meta">{{ post.type }} &nbsp;·&nbsp; {{ post.date | date: "%B %Y" }} &nbsp;·&nbsp; {{ post.location }}</p>
+      </div>
+      <div class="talk-demovids">
+        {% for vid in post.demovids %}
+        <a href="{{ vid.youtubeurl }}" target="_blank" class="talk-demovid">
+          <div class="talk-thumb">
+            <img src="https://img.youtube.com/vi/{{ vid.youtubeid }}/maxresdefault.jpg" alt="{{ vid.label }}" />
+            <div class="talk-play-btn">&#9654;</div>
+          </div>
+          <span class="talk-demovid-label">{{ vid.label }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
     <div class="talk-card">
       {% if post.youtubeid %}
         <a href="{{ post.youtubeurl }}" target="_blank" class="talk-thumb-link">
@@ -28,5 +48,6 @@
         {% endif %}
       </div>
     </div>
+    {% endif %}
   </article>
 </div>
