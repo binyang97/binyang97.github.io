@@ -10,4 +10,3 @@ paperurl: 'https://arxiv.org/abs/2603.25165'
 citation: 'B. Yang, M. Abdelsamad, et al. (2026). &quot;Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds.&quot; <i>CVPR 2026</i>.'
 ---
 
-Using [MathJax](https://www.mathjax.org/) in the description is supported - $$E=mc^2$$ - however, the use must be mindful that the default delimiters are `$$...$$` and `\\[...\\]` which differs from the `$...$` that is typically expected.

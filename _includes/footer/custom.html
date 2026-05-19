@@ -123,5 +123,9 @@
     }, { threshold: 0.08 });
 
     targets.forEach(function (el) { observer.observe(el); });
+
+    document.querySelectorAll('.archive__item p').forEach(function (p) {
+      p.innerHTML = p.innerHTML.replace(/\bB\. Yang\b/g, '<strong>B. Yang</strong>');
+    });
   });
 </script>
