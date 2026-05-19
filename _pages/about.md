@@ -9,11 +9,11 @@ redirect_from:
   I am an industrial Ph.D. researcher at **[Bosch Research for Artificial Intelligence](https://www.bosch.com/research/)**, in cooperation with the [University of 
   Lübeck](https://www.inb.uni-luebeck.de/), advised by [Dr. Alexandru Paul Condurache](https://scholar.google.com/citations?user=UTQb4jIAAAAJ). Before Bosch Research I received my M.Sc. in Robotics, Systems and Control from **ETH Zurich** and B.E. in Mechanical Engineering from **RWTH Aachen University**.
 
-  During my master's at **ETH Zurich**, I worked on LiDAR point cloud upsampling under the supervision of [Prof. Dr. Roland Siegwart](https://scholar.google.com/citations?user=MDIyLnwAAAAJ) at [Autonomous Systems Lab](https://asl.ethz.ch), resulting in a publication at *CVPR 2024* and a perfect thesis score of 6.0/6.0. Earlier, I completed Research Engineer internships at Volkswagen AG <small>*(Vehicle Perception, AR-based data augmentation for semantic segmentation)*</small> and BMW AG <small>*(Functional Safety, Monte Carlo risk modeling and large-scale driving data analysis for autonomous driving).* </small>
+  During my master's at **ETH Zurich**, I worked on LiDAR point cloud upsampling under the supervision of [Prof. Dr. Roland Siegwart](https://scholar.google.com/citations?user=MDIyLnwAAAAJ) at [Autonomous Systems Lab](https://asl.ethz.ch), resulting in a publication at *CVPR 2024* and a perfect thesis score of 6.0/6.0. Earlier, I completed **Research Engineer internships** at **Volkswagen** <small>*(Vehicle Perception, AR-based data augmentation for semantic segmentation)*</small> and **BMW** <small>*(Functional Safety, Monte Carlo risk modeling and large-scale driving data analysis for autonomous driving).* </small>
                                                                                          
   My current research focuses on **scene understanding**, **self-supervised learning**, and **3D foundation models** for autonomous driving.
 
-  **🔍 I am actively looking for Research Scientist positions in computer vision, scene understanding, and autonomous driving, with an expected availability from January 2027. Feel free to reach out at [bin-yang@outlook.de](mailto:bin-yang@outlook.de).**  
+  **🔍 I am actively looking for Research Scientist positions in Computer Vision and Autonomous Driving, with an expected availability from January 2027. Feel free to reach out at [bin-yang@outlook.de](mailto:bin-yang@outlook.de).**  
                           
 📰 News
 ======
@@ -25,8 +25,4 @@ redirect_from:
   - 🎉 **[Sep 5, 2025]** Paper accepted at **WACV 2026** — *FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation*
   - 🎤 **[April, 2025]** Presenting recent work on April 6 at Bosch PhD internal conference in Renningen Research Center.
   
-🎓 Education
-======
-  - **Ph.D.** in Computer Vision and Autonomous Driving — Bosch Research & University of Lübeck *(Dec 2023 – Present)*
-  - **M.S.** in Robotics, Systems and Control — ETH Zurich *(2023)*, GPA: 5.67/6.0                      
-  - **B.Sc.** in Mechanical Engineering — RWTH Aachen University *(2020)*, Top 5% 
+
