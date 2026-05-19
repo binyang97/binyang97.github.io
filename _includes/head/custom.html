@@ -40,6 +40,28 @@
   a { text-decoration: none !important; color: #4a90d9; }
   a:hover { text-decoration: none !important; color: #2c6fad; }
 
+  /* life tab */
+  .life-section { margin-bottom: 40px; }
+  .life-section-title { font-size: 1.2em; font-weight: 600; margin-bottom: 16px; border-bottom: 1px solid #e4e4e4; padding-bottom: 8px; }
+  .life-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .life-card {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s ease;
+  }
+  .life-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.11); }
+  .life-img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+  .life-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+  .life-card:hover .life-img-wrap img { transform: scale(1.04); }
+  .life-caption { font-size: 0.85em; color: #555; padding: 10px 12px; margin: 0; line-height: 1.4; }
+
   /* talk cards */
   .talk-card {
     display: flex;

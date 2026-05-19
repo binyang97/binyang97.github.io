@@ -1,0 +1,21 @@
+sections:
+  - title: "🤝 Volunteer Work"
+    entries:
+      - image: "/images/volunteer1.jpg"
+        caption: "Caption here. One or two sentences describing the activity."
+      - image: "/images/volunteer2.jpg"
+        caption: "Caption here."
+
+  - title: "🏃 Sport"
+    entries:
+      - image: "/images/sport1.jpg"
+        caption: "Caption here."
+      - image: "/images/sport2.jpg"
+        caption: "Caption here."
+
+  - title: "📷 Photography"
+    entries:
+      - image: "/images/photo1.jpg"
+        caption: "Caption here."
+      - image: "/images/photo2.jpg"
+        caption: "Caption here."
