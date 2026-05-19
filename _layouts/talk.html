@@ -41,6 +41,46 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        {% if page.youtubeid and page.demovids == nil %}
+          <div class="talk-page-video">
+            <a href="{{ page.youtubeurl }}" target="_blank" class="talk-thumb-link talk-main-video">
+              <div class="talk-thumb">
+                <img src="https://img.youtube.com/vi/{{ page.youtubeid }}/maxresdefault.jpg" alt="{{ page.title }}" />
+                <div class="talk-play-btn">&#9654;</div>
+              </div>
+            </a>
+            <div class="pub-links" style="margin-top:8px;">
+              <a href="{{ page.youtubeurl }}" target="_blank">▶ Watch on YouTube</a>
+            </div>
+          </div>
+        {% endif %}
+        {% if page.demovids %}
+          {% if page.youtubeid %}
+          <div class="talk-page-video">
+            <a href="{{ page.youtubeurl }}" target="_blank" class="talk-thumb-link talk-main-video">
+              <div class="talk-thumb">
+                <img src="https://img.youtube.com/vi/{{ page.youtubeid }}/maxresdefault.jpg" alt="{{ page.title }}" />
+                <div class="talk-play-btn">&#9654;</div>
+              </div>
+            </a>
+            <div class="pub-links" style="margin-top:8px;margin-bottom:16px;">
+              <a href="{{ page.youtubeurl }}" target="_blank">▶ Watch on YouTube</a>
+            </div>
+          </div>
+          {% endif %}
+          {% if page.description %}<p class="talk-desc" style="margin-bottom:12px;">{{ page.description }}</p>{% endif %}
+          <div class="talk-demovids">
+            {% for vid in page.demovids %}
+            <a href="{{ vid.youtubeurl }}" target="_blank" class="talk-demovid">
+              <div class="talk-thumb">
+                <img src="https://img.youtube.com/vi/{{ vid.youtubeid }}/maxresdefault.jpg" alt="{{ vid.label }}" />
+                <div class="talk-play-btn">&#9654;</div>
+              </div>
+              <span class="talk-demovid-label">{{ vid.label }}</span>
+            </a>
+            {% endfor %}
+          </div>
+        {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>

@@ -2,7 +2,7 @@
 title: "TULIP: Transformer for Upsampling of LiDAR Point Clouds"
 collection: talks
 type: "Demo"
-venue: "CVPR 2024"
+venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2024)"
 date: 2024-06-17
 location: "Seattle, USA"
 youtubeid: "J0Sl4frM9UA"

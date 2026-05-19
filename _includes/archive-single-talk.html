@@ -11,7 +11,7 @@
     {% if post.demovids %}
     <div class="talk-card talk-card--multi">
       <div class="talk-info">
-        <p class="talk-title">{{ title }}</p>
+        <p class="talk-title"><a href="{{ base_path }}{{ post.url }}">{{ title }}</a></p>
         <p class="talk-venue"><i>{{ post.venue }}</i></p>
         <p class="talk-meta">{{ post.type }} &nbsp;·&nbsp; {{ post.date | date: "%B %Y" }} &nbsp;·&nbsp; {{ post.location }}</p>
       </div>
@@ -37,25 +37,23 @@
       </div>
     </div>
     {% else %}
-    <div class="talk-card">
+    <div class="talk-card talk-card--multi">
+      <div class="talk-info">
+        <p class="talk-title"><a href="{{ base_path }}{{ post.url }}">{{ title }}</a></p>
+        <p class="talk-venue"><i>{{ post.venue }}</i></p>
+        <p class="talk-meta">{{ post.type }} &nbsp;·&nbsp; {{ post.date | date: "%B %Y" }} &nbsp;·&nbsp; {{ post.location }}</p>
+      </div>
       {% if post.youtubeid %}
-        <a href="{{ post.youtubeurl }}" target="_blank" class="talk-thumb-link">
+        <a href="{{ post.youtubeurl }}" target="_blank" class="talk-thumb-link talk-main-video">
           <div class="talk-thumb">
             <img src="https://img.youtube.com/vi/{{ post.youtubeid }}/maxresdefault.jpg" alt="{{ title }}" />
             <div class="talk-play-btn">&#9654;</div>
           </div>
         </a>
+        <div class="pub-links" style="margin-top:4px;">
+          <a href="{{ post.youtubeurl }}" target="_blank">▶ Watch</a>
+        </div>
       {% endif %}
-      <div class="talk-info">
-        <p class="talk-title">{{ title }}</p>
-        <p class="talk-venue"><i>{{ post.venue }}</i></p>
-        <p class="talk-meta">{{ post.type }} &nbsp;·&nbsp; {{ post.date | date: "%B %Y" }} &nbsp;·&nbsp; {{ post.location }}</p>
-        {% if post.youtubeurl %}
-          <div class="pub-links">
-            <a href="{{ post.youtubeurl }}" target="_blank">▶ Watch</a>
-          </div>
-        {% endif %}
-      </div>
     </div>
     {% endif %}
   </article>
