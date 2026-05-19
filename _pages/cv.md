@@ -19,7 +19,7 @@ redirect_from:
 ======
 
 * Since December 2023: **Industrial Ph.D. Research Scientist** at Bosch Research
-  * Developing 3D scene understanding methods for autonomous driving, with research published at **CVPR (2024, 2026)**, **ICML 2026**, **AAAI 2026**, **WACV 2026**; additional paper under review at **ECCV 2026**.
+  * Developing 3D scene understanding methods for autonomous driving, with **first-author** or **core contributor** publications at **CVPR (2024, 2026)**, **ICML 2026**, **AAAI 2026**, **WACV 2026**; one additional paper under review at **ECCV 2026**.
   * Benchmarked radar perception methods, including object detection, occupancy prediction, and self-supervised learning, on proprietary Bosch datasets.
   * Co-organized and contributed to workshops on 3D foundation models for autonomous driving perception.
 
