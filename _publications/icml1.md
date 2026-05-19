@@ -2,7 +2,7 @@
 title: "Collaborative Learning for Semi-Supervised LiDAR Semantic Segmentation"
 collection: publications
 category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
+permalink: /publication/icml1
 excerpt: ''
 date: 2026-05-16
 venue: 'Proceedings of the 43rd International Conference on Machine Learning'
