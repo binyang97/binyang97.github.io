@@ -14,6 +14,11 @@
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 
+<!-- Inter font -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
 <!-- Scroll reveal + page transition animations -->
 <style>
   .scroll-reveal {
@@ -26,9 +31,14 @@
     transform: translateY(0);
   }
 
-  /* remove underlines from all links */
-  a { text-decoration: none; }
-  a:hover { text-decoration: none; }
+  /* Inter font */
+  body, .page__content, .sidebar, .masthead, .nav__list, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* links: no underline, accent color */
+  a { text-decoration: none !important; color: #4a90d9; }
+  a:hover { text-decoration: none !important; color: #2c6fad; }
 
   /* publication cards */
   .pub-card {
