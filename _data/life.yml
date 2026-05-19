@@ -4,16 +4,13 @@ sections:
 
   - title: "🏃 Sport"
     description: "I enjoy pretty much every sport — basketball, table tennis, football, badminton, you name it. I also love watching sport games and competitions, from local matches to major tournaments."
-    entries:
-      - image: "/images/sport1.jpg"
-        caption: "Caption here."
-      - image: "/images/sport2.jpg"
-        caption: "Caption here."
 
   - title: "📷 Photography"
     description: "I love capturing the places I travel through — landscapes, fleeting moments, and beautiful scenes from around the world. Hiking trips are a favourite excuse to bring the camera out (while my wife documents everything as a vlogger 😄). Travelling and collecting these glimpses of the world is something I genuinely treasure."
     entries:
-      - image: "/images/photo1.jpg"
-        caption: "Caption here."
-      - image: "/images/photo2.jpg"
-        caption: "Caption here."
+      - image: "/images/eibsee.jpg"
+        caption: "🇩🇪 Eibsee, Bavaria — the glacier lake at the foot of Zugspitze."
+      - image: "/images/fuji.jpg"
+        caption: "🇯🇵 Mount Fuji, Japan — caught on a clear morning from the hiking trail."
+      - image: "/images/stoos.JPG"
+        caption: "🇨🇭 Stoos, Switzerland — alpine views from one of my favourite hikes near Schwyz."
