@@ -53,9 +53,9 @@
   barBottom.style.cssText = 'position:fixed;bottom:0;left:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
   document.body.appendChild(barBottom);
 
-  // top bar (prev) — placed below masthead
+  // top bar (prev)
   var barTop = document.createElement('div');
-  barTop.style.cssText = 'position:fixed;top:66px;right:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
+  barTop.style.cssText = 'position:fixed;top:0;right:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
   document.body.appendChild(barTop);
 
   function setProgressDown(frac) {
@@ -89,7 +89,7 @@
     if (!pageReady || navigating) return;
     var delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * 500 : e.deltaY;
     var atBottom = scrollEl.scrollTop + window.innerHeight >= scrollEl.scrollHeight - 80;
-    var atTop = scrollEl.scrollTop <= 10;
+    var atTop = scrollEl.scrollTop <= 0;
 
     if (delta > 0) {
       accumUp = 0;
@@ -106,9 +106,6 @@
         accumUp += Math.abs(delta);
         setProgressUp(accumUp / THRESHOLD);
         if (accumUp >= THRESHOLD) doNavigate(prevPage);
-      } else {
-        accumUp = 0;
-        setProgressUp(0);
       }
     }
   }, { passive: true });
