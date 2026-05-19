@@ -1,12 +1,9 @@
 sections:
   - title: "🤝 Volunteer Work"
-    entries:
-      - image: "/images/volunteer1.jpg"
-        caption: "Caption here. One or two sentences describing the activity."
-      - image: "/images/volunteer2.jpg"
-        caption: "Caption here."
+    description: "Since May 2026, I volunteer at <a href='https://www.nikolauspflege.de'>Nikolauspflege</a> in Stuttgart on weekends, accompanying children with visual impairments and helping with their daily activities. The experience has taught me a lot about how blind people organize their everyday lives and I now notice things I used to overlook entirely."
 
   - title: "🏃 Sport"
+    description: "I enjoy pretty much every sport — basketball, table tennis, football, badminton, you name it. I also love watching sport games and competitions, from local matches to major tournaments."
     entries:
       - image: "/images/sport1.jpg"
         caption: "Caption here."
@@ -14,6 +11,7 @@ sections:
         caption: "Caption here."
 
   - title: "📷 Photography"
+    description: "I love capturing the places I travel through — landscapes, fleeting moments, and beautiful scenes from around the world. Hiking trips are a favourite excuse to bring the camera out (while my wife documents everything as a vlogger 😄). Travelling and collecting these glimpses of the world is something I genuinely treasure."
     entries:
       - image: "/images/photo1.jpg"
         caption: "Caption here."

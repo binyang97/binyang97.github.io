@@ -10,6 +10,10 @@ author_profile: true
 {% for section in site.data.life.sections %}
 <div class="life-section">
   <h2 class="life-section-title">{{ section.title }}</h2>
+  {% if section.description %}
+  <p class="life-section-desc">{{ section.description }}</p>
+  {% endif %}
+  {% if section.entries %}
   <div class="life-grid">
     {% for entry in section.entries %}
     <div class="life-card">
@@ -20,5 +24,6 @@ author_profile: true
     </div>
     {% endfor %}
   </div>
+  {% endif %}
 </div>
 {% endfor %}
