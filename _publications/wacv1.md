@@ -7,6 +7,6 @@ excerpt: ''
 date: 2025-09-17
 venue: 'Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)'
 paperurl: 'https://arxiv.org/abs/2502.09274'
-citation: 'B. Yang}, A. Condurache. (2025). &quot;FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation.&quot; <i>WACV 2026</i>.'
+citation: 'B. Yang, A. Condurache. (2025). &quot;FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation.&quot; <i>WACV 2026</i>.'
 ---
 

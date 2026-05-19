@@ -45,11 +45,11 @@ redirect_from:
 
 🛠️ Skills
 ======
-* Programming: Python, C++, CUDA, Bash
-* Deep Learning: PyTorch, PyTorch Lightning, TensorFlow, Hugging Face, Weights & Biases
-* 3D/CV Libraries: Open3D, PCL, MinkowskiEngine, MMDetection3D, OpenCV
-* Infrastructure: Linux, Docker, ROS, GPU clusters, Azure, AWS, OpenShift
-* LLM: OpenAI, Claude automations, Antropic API
+* **Programming**: Python, C++, CUDA, Bash
+* **Deep Learning**: PyTorch, PyTorch Lightning, TensorFlow, Hugging Face, Weights & Biases
+* **3D/CV Libraries**: Open3D, PCL, MinkowskiEngine, MMDetection3D, OpenCV
+* **Infrastructure**: Linux, Docker, ROS, GPU clusters, Azure, AWS, OpenShift
+* **LLM**: OpenAI, Claude automations, Antropic API
 
 📄 Publications
 ======

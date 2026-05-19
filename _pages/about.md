@@ -9,7 +9,7 @@ redirect_from:
   I am an industrial Ph.D. researcher at **[Bosch Research for Artificial Intelligence](https://www.bosch.com/research/)**, in cooperation with the [University of 
   Lübeck](https://www.inb.uni-luebeck.de/), advised by [Dr. Alexandru Paul Condurache](https://scholar.google.com/citations?user=UTQb4jIAAAAJ). Before Bosch Research I received my M.Sc. in Robotics, Systems and Control from **ETH Zurich** and B.E. in Mechanical Engineering from **RWTH Aachen University**.
 
-  During my master's at **ETH Zurich**, I worked on LiDAR point cloud upsampling under the supervision of [Prof. Dr. Roland Siegwart](https://scholar.google.com/citations?user=MDIyLnwAAAAJ) at [Autonomous Systems Lab](https://asl.ethz.ch), resulting in a publication at *CVPR 2024* and a perfect thesis score of 6.0/6.0. Earlier, I completed **Research Engineer internships** at **Volkswagen** <small>*(Vehicle Perception, AR-based data augmentation for semantic segmentation)*</small> and **BMW** <small>*(Functional Safety, Monte Carlo risk modeling and large-scale driving data analysis for autonomous driving).* </small>
+  During my master's at **ETH Zurich**, I worked on LiDAR point cloud upsampling under the supervision of [Prof. Dr. Roland Siegwart](https://scholar.google.com/citations?user=MDIyLnwAAAAJ) at [Autonomous Systems Lab](https://asl.ethz.ch), resulting in a publication at *CVPR 2024* and a perfect thesis score of 6.0/6.0. Earlier, I completed **Research Engineer internships** at Volkswagen <small>*(Vehicle Perception, AR-based data augmentation for semantic segmentation)*</small> and BMW <small>*(Functional Safety, Monte Carlo risk modeling and large-scale driving data analysis for autonomous driving).* </small>
                                                                                          
   My current research focuses on **scene understanding**, **self-supervised learning**, and **3D foundation models** for autonomous driving.
 
@@ -23,6 +23,4 @@ redirect_from:
   - 🎉 **[Feb 21, 2026]** Paper accepted at **CVPR 2026** — *Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds*
   - 🎉 **[Nov 7, 2025]** Paper accepted at **AAAI 2026** — *DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation*
   - 🎉 **[Sep 5, 2025]** Paper accepted at **WACV 2026** — *FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation*
-  - 🎤 **[April, 2025]** Presenting recent work on April 6 at Bosch PhD internal conference in Renningen Research Center.
-  
 
