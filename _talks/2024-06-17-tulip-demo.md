@@ -5,6 +5,8 @@ type: "Demo"
 venue: "CVPR 2024"
 date: 2024-06-17
 location: "Seattle, USA"
+youtubeid: "J0Sl4frM9UA"
+youtubeurl: "https://www.youtube.com/watch?v=J0Sl4frM9UA"
 description: "The visualization is done by sampling a time-series subset from the test split."
 demovids:
   - label: "KITTI"

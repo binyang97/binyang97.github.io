@@ -14,8 +14,16 @@
         <p class="talk-title">{{ title }}</p>
         <p class="talk-venue"><i>{{ post.venue }}</i></p>
         <p class="talk-meta">{{ post.type }} &nbsp;·&nbsp; {{ post.date | date: "%B %Y" }} &nbsp;·&nbsp; {{ post.location }}</p>
-        {% if post.description %}<p class="talk-desc">{{ post.description }}</p>{% endif %}
       </div>
+      {% if post.youtubeid %}
+      <a href="{{ post.youtubeurl }}" target="_blank" class="talk-thumb-link talk-main-video">
+        <div class="talk-thumb">
+          <img src="https://img.youtube.com/vi/{{ post.youtubeid }}/maxresdefault.jpg" alt="{{ title }}" />
+          <div class="talk-play-btn">&#9654;</div>
+        </div>
+      </a>
+      {% endif %}
+      {% if post.description %}<p class="talk-desc">{{ post.description }}</p>{% endif %}
       <div class="talk-demovids">
         {% for vid in post.demovids %}
         <a href="{{ vid.youtubeurl }}" target="_blank" class="talk-demovid">
