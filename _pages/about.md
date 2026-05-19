@@ -6,10 +6,12 @@ redirect_from:
   - /about/
   - /about.html
 ---
-  I am an industrial Ph.D. researcher at [Bosch Research for Artificial Intelligence](https://www.bosch.com/research/), in cooperation with the [University of 
-  Lübeck](https://www.inb.uni-luebeck.de/), advised by [Dr.-Ing. habil. Alexandru Paul Condurache](https://scholar.google.com/citations?user=UTQb4jIAAAAJ).               
+  I am an industrial Ph.D. researcher at **[Bosch Research for Artificial Intelligence](https://www.bosch.com/research/)**, in cooperation with the [University of 
+  Lübeck](https://www.inb.uni-luebeck.de/), advised by [Dr. Alexandru Paul Condurache](https://scholar.google.com/citations?user=UTQb4jIAAAAJ). Before Bosch Research I received my M.Sc. in Robotics, Systems and Control from **ETH Zurich** and B.E. in Mechanical Engineering from **RWTH Aachen University**.
+
+  During my master's at **ETH Zurich**, I worked on LiDAR point cloud upsampling under the supervision of [Prof. Dr. Roland Siegwart](https://scholar.google.com/citations?user=MDIyLnwAAAAJ) at [Autonomous Systems Lab](https://asl.ethz.ch), resulting in a publication at *CVPR 2024* and a perfect thesis score of 6.0/6.0. Earlier, I completed Research Engineer internships at Volkswagen AG <small>*(Vehicle Perception, AR-based data augmentation for semantic segmentation)*</small> and BMW AG <small>*(Functional Safety, Monte Carlo risk modeling and large-scale driving data analysis for autonomous driving).* </small>
                                                                                          
-  My research focuses on **scene understanding**, **self-supervised learning**, and **3D foundation models** for autonomous driving.
+  My current research focuses on **scene understanding**, **self-supervised learning**, and **3D foundation models** for autonomous driving.
 
   **🔍 I am actively looking for Research Scientist positions in computer vision, scene understanding, and autonomous driving, with an expected availability from January 2027. Feel free to reach out at [bin-yang@outlook.de](mailto:bin-yang@outlook.de).**  
                           
