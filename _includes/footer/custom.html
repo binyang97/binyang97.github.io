@@ -11,7 +11,7 @@
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
 
-<!-- Scroll-to-next-tab navigation -->
+<!-- Scroll-to-next/prev-tab navigation -->
 <script>
 (function () {
   var baseurl = '{{ site.baseurl }}';
@@ -33,37 +33,53 @@
     }
   }
 
-  if (currentIndex >= navLinks.length - 1) return;
-  var nextPage = navLinks[currentIndex + 1];
+  var hasNext = currentIndex < navLinks.length - 1;
+  var hasPrev = currentIndex > 0;
+  if (!hasNext && !hasPrev) return;
+
+  var nextPage = hasNext ? navLinks[currentIndex + 1] : null;
+  var prevPage = hasPrev ? navLinks[currentIndex - 1] : null;
 
   var navigating = false;
-  var accumDelta = 0;
+  var accumDown = 0;
+  var accumUp = 0;
   var THRESHOLD = 350;
   var pageReady = false;
 
   setTimeout(function () { pageReady = true; }, 1000);
 
-  var bar = document.createElement('div');
-  bar.style.cssText = 'position:fixed;bottom:0;left:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
-  document.body.appendChild(bar);
+  // bottom bar (next)
+  var barBottom = document.createElement('div');
+  barBottom.style.cssText = 'position:fixed;bottom:0;left:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
+  document.body.appendChild(barBottom);
 
-  function setProgress(frac) {
-    bar.style.opacity = frac > 0 ? '1' : '0';
-    bar.style.width = Math.min(frac * 100, 100) + '%';
+  // top bar (prev)
+  var barTop = document.createElement('div');
+  barTop.style.cssText = 'position:fixed;top:0;right:0;height:3px;width:0%;background:#4a90d9;z-index:9999;pointer-events:none;opacity:0;transition:width 0.08s linear,opacity 0.2s ease';
+  document.body.appendChild(barTop);
+
+  function setProgressDown(frac) {
+    barBottom.style.opacity = frac > 0 ? '1' : '0';
+    barBottom.style.width = Math.min(frac * 100, 100) + '%';
+  }
+  function setProgressUp(frac) {
+    barTop.style.opacity = frac > 0 ? '1' : '0';
+    barTop.style.width = Math.min(frac * 100, 100) + '%';
   }
 
-  function doNavigate() {
+  function doNavigate(page) {
     navigating = true;
-    setProgress(0);
+    setProgressDown(0);
+    setProgressUp(0);
     var main = document.getElementById('main');
     if (main) {
       document.body.classList.add('page-leaving');
       var done = false;
-      function go() { if (!done) { done = true; window.location.href = nextPage.url; } }
+      function go() { if (!done) { done = true; window.location.href = page.url; } }
       main.addEventListener('animationend', go, { once: true });
       setTimeout(go, 750);
     } else {
-      window.location.href = nextPage.url;
+      window.location.href = page.url;
     }
   }
 
@@ -71,17 +87,26 @@
 
   window.addEventListener('wheel', function (e) {
     if (!pageReady || navigating) return;
-    var atBottom = scrollEl.scrollTop + window.innerHeight >= scrollEl.scrollHeight - 80;
     var delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * 500 : e.deltaY;
+    var atBottom = scrollEl.scrollTop + window.innerHeight >= scrollEl.scrollHeight - 80;
+    var atTop = scrollEl.scrollTop <= 0;
+
     if (delta > 0) {
-      if (atBottom) {
-        accumDelta += delta;
-        setProgress(accumDelta / THRESHOLD);
-        if (accumDelta >= THRESHOLD) doNavigate();
+      accumUp = 0;
+      setProgressUp(0);
+      if (hasNext && atBottom) {
+        accumDown += delta;
+        setProgressDown(accumDown / THRESHOLD);
+        if (accumDown >= THRESHOLD) doNavigate(nextPage);
       }
     } else if (delta < 0) {
-      accumDelta = 0;
-      setProgress(0);
+      accumDown = 0;
+      setProgressDown(0);
+      if (hasPrev && atTop) {
+        accumUp += Math.abs(delta);
+        setProgressUp(accumUp / THRESHOLD);
+        if (accumUp >= THRESHOLD) doNavigate(prevPage);
+      }
     }
   }, { passive: true });
 
@@ -92,7 +117,10 @@
   window.addEventListener('touchmove', function (e) {
     if (!pageReady || navigating) return;
     var atBottom = scrollEl.scrollTop + window.innerHeight >= scrollEl.scrollHeight - 80;
-    if (atBottom && e.touches[0].clientY < touchStartY - 60) doNavigate();
+    var atTop = scrollEl.scrollTop <= 0;
+    var dy = e.touches[0].clientY - touchStartY;
+    if (hasNext && atBottom && dy < -60) doNavigate(nextPage);
+    if (hasPrev && atTop && dy > 60) doNavigate(prevPage);
   }, { passive: true });
 })();
 </script>
