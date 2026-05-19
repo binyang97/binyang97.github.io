@@ -14,6 +14,7 @@
         <p class="talk-title">{{ title }}</p>
         <p class="talk-venue"><i>{{ post.venue }}</i></p>
         <p class="talk-meta">{{ post.type }} &nbsp;·&nbsp; {{ post.date | date: "%B %Y" }} &nbsp;·&nbsp; {{ post.location }}</p>
+        {% if post.description %}<p class="talk-desc">{{ post.description }}</p>{% endif %}
       </div>
       <div class="talk-demovids">
         {% for vid in post.demovids %}

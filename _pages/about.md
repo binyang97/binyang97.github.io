@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
   I am an industrial Ph.D. researcher at **[Bosch Research for Artificial Intelligence](https://www.bosch.com/research/)**, in cooperation with the [University of 
-  Lübeck](https://www.inb.uni-luebeck.de/), advised by [Dr. Alexandru Paul Condurache](https://scholar.google.com/citations?user=UTQb4jIAAAAJ). Before Bosch Research I received my M.Sc. in Robotics, Systems and Control from **ETH Zurich** and B.E. in Mechanical Engineering from **RWTH Aachen University**.
+  Lübeck](https://www.inb.uni-luebeck.de/), advised by [Dr. Alexandru Paul Condurache](https://scholar.google.com/citations?user=UTQb4jIAAAAJ). Before Bosch Research I received my M.Sc. in Robotics, Systems and Control from **ETH Zurich** and B.Sc. in Mechanical Engineering from **RWTH Aachen University**.
 
   During my master's at **ETH Zurich**, I worked on LiDAR point cloud upsampling under the supervision of [Prof. Dr. Roland Siegwart](https://scholar.google.com/citations?user=MDIyLnwAAAAJ) at [Autonomous Systems Lab](https://asl.ethz.ch), resulting in a publication at *CVPR 2024* and a perfect thesis score of 6.0/6.0. Earlier, I completed **Research Engineer internships** at Volkswagen <small>*(Vehicle Perception, AR-based data augmentation for semantic segmentation)*</small> and BMW <small>*(Functional Safety, Monte Carlo risk modeling and large-scale driving data analysis for autonomous driving).* </small>
                                                                                          
