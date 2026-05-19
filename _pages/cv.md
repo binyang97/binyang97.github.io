@@ -51,19 +51,22 @@ redirect_from:
 * **Infrastructure**: Linux, Docker, ROS, GPU clusters, Azure, AWS, OpenShift
 * **LLM**: OpenAI, Claude automations, Antropic API
 
+🏅 Honors & Awards
+======
+* Outstanding Reviewer Award — **CVPR 2025**
+* Silver Reviewer Award — **ICML 2026**
+* Schaeffler Top Student Award — **Schaeffler AG** *(2020)*
+* Dean's List Award every semester — **RWTH Aachen University** *(2016–2020, top 5%)*
+* **Scholarship** recipient — Bildungsfonds, Carl-Arthur Pastor Stiftung, Hans Hermann Voss-Stiftung *(2016–2018)*
+
 📄 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-🎤 Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-  
+
 🤝 Service and Leadership
 ======
-* Currently signed in to 43 different slack teams
+* **Teaching Assistant** — Perception for Autonomous Vehicles, University of Lübeck *(since 2024)*
+* **Reviewer** — CVPR, NeurIPS, ICML, ICLR, ICCV, ECCV *(2024–2026)*
