@@ -53,7 +53,7 @@ redirect_from:
 
 🏅 Honors & Awards
 ======
-* Outstanding Reviewer Award — **CVPR 2025**
+* Outstanding Reviewer Award — **CVPR 2025, 2026**
 * Silver Reviewer Award — **ICML 2026**
 * Schaeffler Top Student Award — **Schaeffler AG** *(2020)*
 * Dean's List Award every semester — **RWTH Aachen University** *(2016–2020, top 5%)*
