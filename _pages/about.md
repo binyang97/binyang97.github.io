@@ -18,8 +18,8 @@ redirect_from:
 📰 News
 ======
 
+  - 🎤 **[CVPR 2026]** Presenting during the poster session 1 on June 5, 10:45–12:45, \#271
   - 🎉 **[April 30, 2026]** First-authored Paper <span class="word-accent">accepted</span> at **ICML 2026** — *Collaborative Learning for Semi-Supervised LiDAR Semantic Segmentation*
-  - 🎤 **[March, 2026]** Presenting *FLARES* during the poster session on March 9 at WACV 2026 in Tucson, Arizona, USA.
   - 🎉 **[Feb 21, 2026]** First-authored Paper <span class="word-accent">accepted</span> at **CVPR 2026** — *Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds*
   - 🎉 **[Nov 7, 2025]** Co-authored Paper <span class="word-accent">accepted</span> at **AAAI 2026** — *DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation*
   - 🎉 **[Sep 5, 2025]** First-authored Paper <span class="word-accent">accepted</span> at **WACV 2026** in the FIRST Round *(6.5% of submissions)* — *FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation*
