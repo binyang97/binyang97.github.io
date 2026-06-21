@@ -1,0 +1,353 @@
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin Yang — AI Researcher</title>
+    <meta name="description" content="Personal academic website of Bin Yang, AI researcher at Bosch Research, working on 3D scene understanding, self-supervised learning, and foundation models for embodied AI.">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="robots" content="all">
+    <meta content="en_EN" property="og:locale">
+    <meta content="website" property="og:type">
+    <meta content="https://binyang97.github.io" property="og:url">
+    <meta content="Bin Yang" property="og:title">
+    <meta content="AI Researcher at Bosch Research — 3D Scene Understanding, LiDAR Perception, Foundation Models" property="og:description">
+
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="clarity/clarity.css" />
+    <link href="assets/fontawesome-free-7.2.0-web/css/all.min.css" rel="stylesheet">
+    <script src="assets/scripts/navbar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        /* Profile header layout */
+        .profile-header {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+        .profile-photo {
+            flex-shrink: 0;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.4);
+        }
+        .profile-text { flex: 1; }
+        @media (max-width: 600px) {
+            .profile-header { flex-direction: column; align-items: center; }
+            .profile-text { text-align: center; }
+        }
+
+        /* Social link buttons */
+        .social-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+
+        /* News list */
+        .news-list { list-style: none; padding: 0; margin: 0; }
+        .news-list li { padding: 0.45rem 0; border-bottom: 1px solid #e8e8e8; font-size: 0.85rem; line-height: 1.6; }
+        .news-list li:last-child { border-bottom: none; }
+        .badge { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.1em 0.55em; border-radius: 3px; margin-right: 0.35em; vertical-align: middle; }
+        .badge-cvpr  { background: #dbeafe; color: #1d4ed8; }
+        .badge-wacv  { background: #fef3c7; color: #92400e; }
+        .badge-icml  { background: #d1fae5; color: #065f46; }
+        .badge-aaai  { background: #ede9fe; color: #5b21b6; }
+
+        /* Publications */
+        .pub-card { border-left: 3px solid #d1d5db; padding: 0.8rem 1rem; margin-bottom: 1.4rem; background: #fafafa; border-radius: 0 6px 6px 0; }
+        .pub-card:last-child { margin-bottom: 0; }
+        .pub-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.2rem; }
+        .pub-authors { font-size: 0.88rem; color: #555; margin-bottom: 0.3rem; }
+        .pub-venue { font-size: 0.85rem; color: #777; font-style: italic; margin-bottom: 0.55rem; }
+        .pub-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+        /* CV sections */
+        .cv-entry { display: flex; gap: 1rem; margin-bottom: 1rem; }
+        .cv-date { flex-shrink: 0; width: 100px; font-size: 0.82rem; color: #888; padding-top: 0.15rem; }
+        .cv-body { flex: 1; font-size: 0.93rem; line-height: 1.6; }
+        .cv-body strong { color: #222; }
+        @media (max-width: 500px) { .cv-entry { flex-direction: column; } .cv-date { width: auto; } }
+
+        /* Life gallery */
+        .life-section-title { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.4rem; color: #333; }
+        .life-description { font-size: 0.93rem; color: #555; margin-bottom: 0.8rem; line-height: 1.7; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; }
+        .photo-grid img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+        .photo-caption { font-size: 0.78rem; color: #666; text-align: center; margin-top: 0.3rem; }
+
+        /* Section dividers */
+        .section-rule { border: none; border-top: 1px solid #e5e7eb; margin: 0; }
+    </style>
+</head>
+
+<body>
+    <!-- ======== Hero / About ======== -->
+    <div class="container blog" id="first-content" style="background-color: #DDE3E8;">
+        <div class="blog-title no-cover">
+            <div class="blog-intro">
+                <div class="profile-header">
+                    <img class="profile-photo" src="images/profile.jpeg" alt="Bin Yang">
+                    <div class="profile-text">
+                        <h1 class="title" style="margin-bottom: 0.25rem;">Bin Yang</h1>
+                        <p style="margin: 0 0 0.5rem; font-size: 1rem; color: #444;">
+                            Industrial Ph.D. Researcher · <a href="https://www.bosch.com/research/" style="color: inherit;">Bosch Research for AI</a> × <a href="https://www.inb.uni-luebeck.de/" style="color: inherit;">University of Lübeck</a>
+                        </p>
+                        <p class="abstract" style="margin-bottom: 0.6rem;">
+                            I work on <strong>scene understanding</strong>, <strong>self-supervised learning</strong>, and <strong>3D foundation models</strong> for embodied AI systems.
+                            Previously M.Sc. in Robotics from <strong>ETH Zurich</strong> and B.Sc. in Mechanical Engineering from <strong>RWTH Aachen University</strong>.
+                        </p>
+                        <p style="font-size: 0.92rem; color: #333; margin-bottom: 0.6rem;">
+                            <strong>Open to Research Scientist positions</strong> in Computer Vision &amp; Autonomous Driving — available from January 2027.
+                            Reach me at <a href="mailto:bin-yang@outlook.de">bin-yang@outlook.de</a>.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://scholar.google.com/citations?user=6YMJhWkAAAAJ" class="button icon" style="background-color: rgba(255,255,255,0.3); font-size: 0.85rem;">
+                                Google Scholar <i class="fa-solid fa-graduation-cap"></i>
+                            </a>
+                            <a href="https://github.com/binyang97" class="button icon" style="background-color: rgba(255,255,255,0.3); font-size: 0.85rem;">
+                                GitHub <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/bin-yang-407b601b9" class="button icon" style="background-color: rgba(255,255,255,0.3); font-size: 0.85rem;">
+                                LinkedIn <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:bin-yang@outlook.de" class="button icon" style="background-color: rgba(255,255,255,0.3); font-size: 0.85rem;">
+                                Email <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ======== News ======== -->
+    <div class="container blog main first" id="blog-main">
+        <h1>News</h1>
+        <ul class="news-list">
+            <li>
+                <span class="badge badge-icml">ICML 2026</span>
+                <strong>[April 30, 2026]</strong> First-authored paper accepted — <em>Collaborative Learning for Semi-Supervised LiDAR Semantic Segmentation</em>
+            </li>
+            <li>
+                <span class="badge badge-wacv">WACV 2026</span>
+                <strong>[March 2026]</strong> Presented <em>FLARES</em> at the poster session on March 9, Tucson, Arizona, USA.
+            </li>
+            <li>
+                <span class="badge badge-cvpr">CVPR 2026</span>
+                <strong>[Feb 21, 2026]</strong> First-authored paper accepted — <em>Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds</em>
+            </li>
+            <li>
+                <span class="badge badge-aaai">AAAI 2026</span>
+                <strong>[Nov 7, 2025]</strong> Co-authored paper accepted — <em>DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation</em>
+            </li>
+            <li>
+                <span class="badge badge-wacv">WACV 2026</span>
+                <strong>[Sep 5, 2025]</strong> First-authored paper accepted in Round 1 (6.5% of submissions) — <em>FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation</em>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- ======== Publications ======== -->
+    <hr class="section-rule">
+    <div class="container blog main">
+        <h1>Publications</h1>
+
+        <div class="pub-card">
+            <div class="pub-title">Collaborative Learning for Semi-Supervised LiDAR Semantic Segmentation</div>
+            <div class="pub-authors">B. Yang, A. Condurache</div>
+            <div class="pub-venue">International Conference on Machine Learning (ICML 2026)</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2605.17135" class="button icon" style="font-size: 0.82rem;">Paper <i class="fa-solid fa-file-lines"></i></a>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <div class="pub-title">Towards Foundation Models for 3D Scene Understanding: Instance-Aware Self-Supervised Learning for Point Clouds</div>
+            <div class="pub-authors">B. Yang, M. Abdelsamad, et al.</div>
+            <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026)</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2603.25165" class="button icon" style="font-size: 0.82rem;">Paper <i class="fa-solid fa-file-lines"></i></a>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <div class="pub-title">DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation</div>
+            <div class="pub-authors">M. Abdelsamad, M. Ulrich, B. Yang, et al.</div>
+            <div class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI 2026)</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2512.11465" class="button icon" style="font-size: 0.82rem;">Paper <i class="fa-solid fa-file-lines"></i></a>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <div class="pub-title">FLARES: Fast and Accurate LiDAR Multi-Range Semantic Segmentation</div>
+            <div class="pub-authors">B. Yang, A. Condurache</div>
+            <div class="pub-venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2026)</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2502.09274" class="button icon" style="font-size: 0.82rem;">Paper <i class="fa-solid fa-file-lines"></i></a>
+                <a href="https://www.youtube.com/watch?v=Kt1es5q58kk" class="button icon" style="font-size: 0.82rem;">Video <i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <div class="pub-title">TULIP: Transformer for Upsampling of LiDAR Point Clouds</div>
+            <div class="pub-authors">B. Yang, P. Pfreundschuh, et al.</div>
+            <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2024)</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2603.25165" class="button icon" style="font-size: 0.82rem;">Paper <i class="fa-solid fa-file-lines"></i></a>
+                <a href="https://github.com/ethz-asl/TULIP" class="button icon" style="font-size: 0.82rem;">Code <i class="fa-brands fa-github"></i></a>
+                <a href="https://www.youtube.com/watch?v=J0Sl4frM9UA" class="button icon" style="font-size: 0.82rem;">Video <i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ======== CV ======== -->
+    <hr class="section-rule">
+    <div class="container blog main">
+        <h1>CV</h1>
+
+        <h2>Education</h2>
+        <div class="cv-entry">
+            <div class="cv-date">2023 – present</div>
+            <div class="cv-body"><strong>Ph.D.</strong> in Computer Vision &amp; Autonomous Driving — Bosch Research for AI × University of Lübeck<br>
+            Advised by Dr. Alexandru Paul Condurache</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">2021 – 2023</div>
+            <div class="cv-body"><strong>M.Sc.</strong> in Robotics, Systems and Control — ETH Zurich &nbsp; GPA: 5.67 / 6.0</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">2016 – 2020</div>
+            <div class="cv-body"><strong>B.Sc.</strong> in Mechanical Engineering — RWTH Aachen University &nbsp; Dean's List (Top 5%)</div>
+        </div>
+
+        <h2>Industry Experience</h2>
+        <div class="cv-entry">
+            <div class="cv-date">Dec 2023 – now</div>
+            <div class="cv-body"><strong>Industrial Ph.D. Research Scientist</strong> — Bosch Research<br>
+            3D scene understanding for autonomous driving; first-author &amp; core contributor at CVPR (2024, 2026), ICML 2026, AAAI 2026, WACV 2026.</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">Winter 2021</div>
+            <div class="cv-body"><strong>Research Engineer Intern</strong> — Volkswagen AG<br>
+            AR-based data augmentation for semantic segmentation; +5% mIoU improvement.</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">Summer 2021</div>
+            <div class="cv-body"><strong>Software Engineering Intern</strong> — BMW AG<br>
+            Large-scale driving data analysis via AWS/PySpark; Monte Carlo risk models for autonomous driving safety.</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">2019 – 2020</div>
+            <div class="cv-body"><strong>Research Intern &amp; Bachelor Thesis</strong> — Schaeffler AG<br>
+            Heat pump optimization for electric mobility; <em>Patent No. DE102022100491A1</em>.</div>
+        </div>
+
+        <h2>Research Experience</h2>
+        <div class="cv-entry">
+            <div class="cv-date">Summer 2023</div>
+            <div class="cv-body"><strong>Master Thesis</strong> — ETH Zurich, Autonomous Systems Lab<br>
+            Swin-Transformer LiDAR upsampling → CVPR 2024. GPA: 6.0/6.0.</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">Winter 2022</div>
+            <div class="cv-body"><strong>Research Project Assistant</strong> — ETH Zurich, AIT Lab<br>
+            Camera localization for 3D gaze estimation.</div>
+        </div>
+
+        <h2>Honours &amp; Awards</h2>
+        <div class="cv-entry">
+            <div class="cv-date">2025</div>
+            <div class="cv-body">Outstanding Reviewer Award — CVPR 2025</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">2026</div>
+            <div class="cv-body">Silver Reviewer Award — ICML 2026</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">2020</div>
+            <div class="cv-body">Schaeffler Top Student Award; Dean's List every semester at RWTH Aachen (top 5%)</div>
+        </div>
+        <div class="cv-entry">
+            <div class="cv-date">2016–2018</div>
+            <div class="cv-body">Scholarship recipient — Bildungsfonds, Carl-Arthur Pastor Stiftung, Hans Hermann Voss-Stiftung</div>
+        </div>
+
+        <h2>Skills</h2>
+        <p class="text" style="font-size: 0.93rem;">
+            <strong>Programming:</strong> Python, C++, CUDA, Bash &nbsp;·&nbsp;
+            <strong>Deep Learning:</strong> PyTorch, PyTorch Lightning, TensorFlow, HuggingFace, W&amp;B &nbsp;·&nbsp;
+            <strong>3D / CV:</strong> Open3D, PCL, MinkowskiEngine, MMDetection3D, OpenCV &nbsp;·&nbsp;
+            <strong>Infra:</strong> Linux, Docker, ROS, GPU clusters, Azure, AWS
+        </p>
+
+        <h2>Service</h2>
+        <p class="text" style="font-size: 0.93rem;">
+            Teaching Assistant — Perception for Autonomous Vehicles, University of Lübeck (since 2024)<br>
+            Reviewer — CVPR, NeurIPS, ICML, ICLR, ICCV, ECCV (2024–2026)
+        </p>
+    </div>
+
+
+    <!-- ======== Life ======== -->
+    <hr class="section-rule">
+    <div class="container blog main">
+        <h1>Life</h1>
+
+        <p class="life-description">
+            Since May 2026, I volunteer at <a href="https://www.nikolauspflege.de">Nikolauspflege</a> in Stuttgart on weekends, accompanying children with visual impairments and helping with their daily activities. The experience has taught me a lot about how blind people organize their everyday lives.
+        </p>
+
+        <div class="life-section-title">Sport</div>
+        <p class="life-description">I enjoy pretty much every sport — basketball, table tennis, football, badminton, you name it. I also love watching sport games and competitions, from local matches to major tournaments.</p>
+        <div class="photo-grid">
+            <div>
+                <img src="images/pingpong.jpg" alt="Table tennis">
+                <p class="photo-caption">1st place at the Bosch internal PhD table tennis competition.</p>
+            </div>
+            <div>
+                <img src="images/paris2024.jpg" alt="Paris 2024 Olympics">
+                <p class="photo-caption">Paris 2024 Summer Olympics — watched several games and soaked up the atmosphere.</p>
+            </div>
+            <div>
+                <img src="images/milan2026.jpg" alt="Milano Cortina 2026">
+                <p class="photo-caption">Milano Cortina 2026 Winter Olympics opening ceremony.</p>
+            </div>
+        </div>
+
+        <div class="life-section-title" style="margin-top: 2rem;">Photography</div>
+        <p class="life-description">I love capturing the places I travel through — landscapes, fleeting moments, and beautiful scenes from around the world. Hiking trips are a favourite excuse to bring the camera out (while my wife documents everything as a vlogger). Travelling and collecting these glimpses of the world is something I genuinely treasure.</p>
+        <div class="photo-grid">
+            <div>
+                <img src="images/eibsee.jpg" alt="Eibsee Bavaria">
+                <p class="photo-caption">Eibsee, Bavaria — the glacier lake at the foot of Zugspitze.</p>
+            </div>
+            <div>
+                <img src="images/fuji.jpg" alt="Mount Fuji">
+                <p class="photo-caption">Mount Fuji, Japan — caught on a clear morning from the hiking trail.</p>
+            </div>
+            <div>
+                <img src="images/stoos.JPG" alt="Stoos Switzerland">
+                <p class="photo-caption">Stoos, Switzerland — alpine views from one of my favourite hikes near Schwyz.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ======== Footer ======== -->
+    <footer>
+        <div class="container">
+            <p>
+                Bin Yang · <a href="mailto:bin-yang@outlook.de">bin-yang@outlook.de</a> ·
+                Built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a> by <a href="https://shikun.io/">Shikun Liu</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="clarity/clarity.js"></script>
+    <script src="assets/scripts/main.js"></script>
+</body>
+</html>
