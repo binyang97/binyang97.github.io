@@ -69,11 +69,9 @@
         @media (max-width: 500px) { .cv-entry { flex-direction: column; } .cv-date { width: auto; } }
 
         /* Life gallery */
-        .life-section-title { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.4rem; color: #333; }
-        .life-description { font-size: 0.93rem; color: #555; margin-bottom: 0.8rem; line-height: 1.7; }
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; }
         .photo-grid img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
-        .photo-caption { font-size: 0.78rem; color: #666; text-align: center; margin-top: 0.3rem; }
+        .photo-grid .caption { text-align: center; margin-top: 0.3rem; }
 
         /* Section dividers */
         .section-rule { border: none; border-top: 1px solid #e5e7eb; margin: 0; }
@@ -297,41 +295,41 @@
     <div class="container blog main">
         <h1>Life</h1>
 
-        <p class="life-description">
+        <p class="text">
             Since May 2026, I volunteer at <a href="https://www.nikolauspflege.de">Nikolauspflege</a> in Stuttgart on weekends, accompanying children with visual impairments and helping with their daily activities. The experience has taught me a lot about how blind people organize their everyday lives.
         </p>
 
-        <div class="life-section-title">Sport</div>
-        <p class="life-description">I enjoy pretty much every sport — basketball, table tennis, football, badminton, you name it. I also love watching sport games and competitions, from local matches to major tournaments.</p>
+        <h2>Sport</h2>
+        <p class="text">I enjoy pretty much every sport — basketball, table tennis, football, badminton, you name it. I also love watching sport games and competitions, from local matches to major tournaments.</p>
         <div class="photo-grid">
             <div>
                 <img src="images/pingpong.jpg" alt="Table tennis">
-                <p class="photo-caption">1st place at the Bosch internal PhD table tennis competition.</p>
+                <p class="caption">1st place at the Bosch internal PhD table tennis competition.</p>
             </div>
             <div>
                 <img src="images/paris2024.jpg" alt="Paris 2024 Olympics">
-                <p class="photo-caption">Paris 2024 Summer Olympics — watched several games and soaked up the atmosphere.</p>
+                <p class="caption">Paris 2024 Summer Olympics — watched several games and soaked up the atmosphere.</p>
             </div>
             <div>
                 <img src="images/milan2026.jpg" alt="Milano Cortina 2026">
-                <p class="photo-caption">Milano Cortina 2026 Winter Olympics opening ceremony.</p>
+                <p class="caption">Milano Cortina 2026 Winter Olympics opening ceremony.</p>
             </div>
         </div>
 
-        <div class="life-section-title" style="margin-top: 2rem;">Photography</div>
-        <p class="life-description">I love capturing the places I travel through — landscapes, fleeting moments, and beautiful scenes from around the world. Hiking trips are a favourite excuse to bring the camera out (while my wife documents everything as a vlogger). Travelling and collecting these glimpses of the world is something I genuinely treasure.</p>
+        <h2>Photography</h2>
+        <p class="text">I love capturing the places I travel through — landscapes, fleeting moments, and beautiful scenes from around the world. Hiking trips are a favourite excuse to bring the camera out (while my wife documents everything as a vlogger). Travelling and collecting these glimpses of the world is something I genuinely treasure.</p>
         <div class="photo-grid">
             <div>
                 <img src="images/eibsee.jpg" alt="Eibsee Bavaria">
-                <p class="photo-caption">Eibsee, Bavaria — the glacier lake at the foot of Zugspitze.</p>
+                <p class="caption">Eibsee, Bavaria — the glacier lake at the foot of Zugspitze.</p>
             </div>
             <div>
                 <img src="images/fuji.jpg" alt="Mount Fuji">
-                <p class="photo-caption">Mount Fuji, Japan — caught on a clear morning from the hiking trail.</p>
+                <p class="caption">Mount Fuji, Japan — caught on a clear morning from the hiking trail.</p>
             </div>
             <div>
                 <img src="images/stoos.JPG" alt="Stoos Switzerland">
-                <p class="photo-caption">Stoos, Switzerland — alpine views from one of my favourite hikes near Schwyz.</p>
+                <p class="caption">Stoos, Switzerland — alpine views from one of my favourite hikes near Schwyz.</p>
             </div>
         </div>
     </div>
